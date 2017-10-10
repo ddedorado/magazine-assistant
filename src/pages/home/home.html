@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Magazine Assistant
+    </ion-title>
+	<ion-buttons end>
+    	<button ion-button (click)="closeModal()"><ion-icon name="add"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-list>
+		<ion-item-sliding *ngFor="let magazine of magazines; let pos = index">
+			<ion-item>
+				<h2>{{magazine.title}}</h2>
+				<p>Code • {{magazine.code}}</p>
+				<p>{{magazine.description}}</p>
+				<button ion-button clear item-end>View</button>
+			</ion-item>
+			<ion-item-options side="right">
+				<button ion-button color="primary">
+					<ion-icon name="create"></ion-icon>
+					Editar
+				</button>
+				<button ion-button color="danger" (click)="removeMagazine(magazine, pos)">
+					<ion-icon name="trash"></ion-icon>
+					Delete
+				</button>
+			</ion-item-options>
+		</ion-item-sliding>
+	</ion-list>
+</ion-content>
+
